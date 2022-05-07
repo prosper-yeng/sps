@@ -42,10 +42,13 @@ INSTALLED_APPS = [
     'select_item',
     'nation',
     'region',
+    'constituency',
+    'electoral_area',
     'district',
     'polling_station',
-    'constituency',
+
     'rest_framework',
+
 ]
 
 MIDDLEWARE = [

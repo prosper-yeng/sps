@@ -9,17 +9,18 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('region', '0001_initial'),
+        ('constituency', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='District',
+            name='ElectoralArea',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name_of_district', models.CharField(max_length=100, unique=True)),
+                ('name_of_electoral_area', models.CharField(max_length=100, unique=True)),
+                ('electoral_area_code', models.CharField(max_length=50, unique=True)),
                 ('status', models.CharField(choices=[('created', 'Created'), ('approved', 'Approved'), ('active', 'Active'), ('deactivate', 'Deactivate'), ('delete', 'Delete'), ('closed', 'Closed')], max_length=100)),
-                ('region', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='district', to='region.region')),
+                ('constituency', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='electoral_area_const', to='constituency.constituency')),
             ],
         ),
     ]

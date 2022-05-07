@@ -6,6 +6,7 @@ from django.utils import timezone
 
 from polling_station.models import PollingStation
 from constituency.models import Constituency
+from electoral_area.models import ElectoralArea
 from region.models import Region
 from validator.views import validate_file_size, valid_phone_number
 from common.views import allowed_extension
@@ -23,6 +24,7 @@ User.add_to_class('national_id',  models.CharField(max_length=100, blank=True, n
 User.add_to_class('region', models.ForeignKey(Region, on_delete=models.CASCADE, null=True, related_name='user_region_station'))
 User.add_to_class('constituency', models.ForeignKey(Constituency, on_delete=models.CASCADE, null=True, related_name='user_constituency'))
 User.add_to_class('polling_station', models.ForeignKey(PollingStation, on_delete=models.CASCADE, null=True, related_name='user_polling_station'))
+User.add_to_class('electoral_area', models.ForeignKey(ElectoralArea, on_delete=models.CASCADE, null=True, related_name='user_electoral_area'))
 Group.add_to_class('default',  models.BooleanField(default=False))
 User.add_to_class('default_pwd_changed',  models.BooleanField(default=False,blank=True, null=True ))
 User.add_to_class('old_pwd',  models.CharField(max_length=100, blank=True, null=True ))

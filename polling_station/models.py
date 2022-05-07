@@ -1,11 +1,11 @@
 from django.db import models
 from choice.views import StatusChoice
-from constituency.models import Constituency
+from electoral_area.models import ElectoralArea
 
 
 # Create your models here.
 class PollingStation (models.Model):
-    constituency=models.ForeignKey(Constituency, on_delete=models.CASCADE, related_name='constituency')
+    electoral_area=models.ForeignKey(ElectoralArea, on_delete=models.CASCADE, related_name='electoral_area')
     name_of_polling_station = models.CharField ( max_length=100, null=False, unique=True )
     polling_station_code = models.CharField ( max_length=50, null=False, unique=True )
     voters_population = models.IntegerField ()
