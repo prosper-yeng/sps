@@ -27,6 +27,7 @@ class UserSerializer(serializers.ModelSerializer):
                   'group',
                   'region',
                   'constituency',
+                  'electoral_area',
                   'polling_station',
                   'password',
                   'old_pwd',
