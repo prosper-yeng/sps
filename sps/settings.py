@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'electoral_area',
     'district',
     'polling_station',
-
+    'corsheaders',
     'rest_framework',
 
 ]
@@ -62,12 +62,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080",
-    "http://localhost:3000",
-    "http://127.0.0.1:9000",
-    "http://127.0.0.1:8000",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:8080",
+#     "http://localhost:3000",
+#     "http://127.0.0.1:9000",
+#     "http://127.0.0.1:8000",
+# ]
+
+#CORS_ORIGIN_ALLOW_ALL = True
+#CORS_ALLOW_CREDENTIALS = True
+#CORS_ALLOW_HEADERS = ['*']
+CORS_ORIGIN_WHITELIST = ('http://localhost:8000',)
 
 ROOT_URLCONF = 'sps.urls'
 
