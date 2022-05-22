@@ -5,7 +5,7 @@ from .serializers import NationalSerializer
 from .models import Nation
 
 
-class DistrictViewset (viewsets.ModelViewSet):
+class NationViewset (viewsets.ModelViewSet):
     queryset = Nation.objects.all()
     permission = [
         permissions.AllowAny

@@ -29,6 +29,8 @@ urlpatterns = [
     path ( '', include ( ('constituency.urls', 'constituency'), namespace='constituency') ),
     path ( '', include ( ('electoral_area.urls', 'electoral_area'), namespace='electoral_area' ) ),
     path ( '', include ( ('polling_station.urls', 'polling_station'), namespace='polling_station') ),
+    path ( '', include ( ('permission.urls', 'permission'), namespace='permission') ),
+    path ( '', include ( ('status.urls', 'status'), namespace='status' ) ),
     path('admin/', admin.site.urls),
 
     path ( 'schema', get_schema_view (

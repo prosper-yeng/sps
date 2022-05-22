@@ -10,6 +10,7 @@ from electoral_area.models import ElectoralArea
 from region.models import Region
 from validator.views import validate_file_size, valid_phone_number
 from common.views import allowed_extension
+from django.utils.timezone import now
 
 from django.core.validators import FileExtensionValidator
 #User.add_to_class('photo_url',   models.CharField(max_length=100000, blank=True, null=True))
@@ -28,9 +29,15 @@ User.add_to_class('electoral_area', models.ForeignKey(ElectoralArea, on_delete=m
 Group.add_to_class('default',  models.BooleanField(default=False))
 User.add_to_class('default_pwd_changed',  models.BooleanField(default=False,blank=True, null=True ))
 User.add_to_class('old_pwd',  models.CharField(max_length=100, blank=True, null=True ))
-User.add_to_class('status',  models.CharField(max_length=100, choices=StatusChoice.choices, default=StatusChoice.APPROVED ))
+User.add_to_class('status',   models.ForeignKey ('status.Status', on_delete=models.CASCADE, related_name='person_status' ))
 User.add_to_class('created_by',  models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='user_created_by', max_length=100))
-User.add_to_class('created_on',  models.DateTimeField( default=timezone.now))
+User.add_to_class('created_on',  models.DateTimeField( default=now))
+
+
+
+
+
+
 
 
 
